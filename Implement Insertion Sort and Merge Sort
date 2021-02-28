@@ -1,0 +1,72 @@
+#include<iostream>
+#include <fstream>
+using namespace std;
+
+class sorting
+{
+    private:
+    int s[100],size;
+
+    public:
+   
+    void input();
+    void insertion();
+
+};
+
+void sorting :: input()
+{
+    srand(5);
+    cout<<"Enter size of array :";
+    cin>>size;
+    // cout<<"___________Taking random element___________ \n\n";
+    for(int j = 0; j < size; j++)
+        {
+            s[j] = rand()%1000;
+        }
+
+
+}
+
+void sorting :: insertion()
+{
+    int i,j,k ,temp=0 ,comp= 0, total = 0;
+	
+	for(i=1; i<size; i++)
+	{
+		temp = s[i];
+		
+		for(j=i-1; j>=0; j--)
+		{
+			// comp++;
+			total++;
+			if(s[j] > temp)
+			{
+				s[j+1] = s[j];
+			}
+			else
+				break;
+		}
+
+		s[j+1] = temp;
+	// 	cout << "After pass " << i << ": ";
+
+	// 	for(k=0; k<size; k++)
+	// 		cout << s[k] << " ";
+	// 			cout << "\nComparisions in pass " << i << ": " << comp;
+
+	// 	cout << endl << endl;
+	}
+	cout << "Total comparisions: "  << total;
+
+}
+int main()
+{
+    int size;
+    
+    
+    sorting ob1;
+    ob1.input();
+    ob1.insertion();  
+    
+}
